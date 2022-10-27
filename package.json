@@ -1,0 +1,23 @@
+{
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "husky": "^8.0.0"
+    }
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w caiyun_tr -x pytest tests",
+        "pyright": "nodemon -w caiyun_tr -w .venv -e .py -x pyright caiyun_tr tests",
+        "pytest": "nodemon -w tests -w caiyun_tr -e .py -x pytest tests caiyun_tr",
+        "style": "nodemon -w caiyun_tr -w tests -x \"black tests caiyun_tr && python -m flake8\"",
+        "docstyle": "nodemon -w caiyun_tr -w tests -x pydocstyle --convention=google tests caiyun_tr",
+        "pylint": "nodemon -w caiyun_tr -e .py -x pylint caiyun_tr",
+        "test:caiyun_tr": "nodemon -w tests -e .py -x pytest -k caiyun_tr tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests caiyun_tr",
+        "flake8": "flake8 tests caiyun_tr",
+        "pflake8": "pflake8 tests caiyun_tr",
+        "pep257": "pep257 tests caiyun_tr",
+        "final": "run-s docstyle black flake8 pytest",
+        "prepare": "husky install"
+    }
+}
