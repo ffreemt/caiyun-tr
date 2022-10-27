@@ -6,8 +6,9 @@ caiyun-tr
 ## Install it
 
 ```shell
-pip install caiyun-tr
-# pip install git+https://github.com/ffreemt/caiyun-tr
+pip install git+https://github.com/ffreemt/caiyun-tr
+
+# x pip install caiyun-tr
 # poetry add git+https://github.com/ffreemt/caiyun-tr
 # git clone https://github.com/ffreemt/caiyun-tr && cd caiyun-tr
 ```
