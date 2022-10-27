@@ -15,3 +15,9 @@ def test_sanity():
         assert not caiyun_tr()
     except Exception:
         assert True
+
+
+def test_en2zh():
+    """Test en to zh."""
+    assert "这" in caiyun_tr("Test this and that")
+    
