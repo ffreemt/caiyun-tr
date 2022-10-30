@@ -17,4 +17,21 @@ pip install caiyun-tr --upgrade
 ```python
 from caiyun_tr import caiyun_tr
 
+print(caiyun_tr("test this"))
+# 试试这个
+
+# only certain pairs are valid, en/ja is not valid
+print(caiyun_tr("test this", from_lang="en", to_lang="ja"))
+# Exception: Unsupported trans_type (language pair)
+
+# zh/ja is valid
+print(caiyun_tr("test this", from_lang="zh", to_lang="ja"))
+# テストして
+
+print(caiyun_tr("テストして", 'ja', "zh"))
+# 测试一下
 ```
+
+Only certain from_lang/to_lang pairs are supported by the website. There is nothing we can do about it.
+
+If the caiyun website changes, this package will likely no longer work. If you feedback, the dev will try to fix it -- there is no guarantee thou. 

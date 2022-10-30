@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "caiyun-tr"
-version = "0.1.0a1"
+version = "0.1.0"
 description = "caiyun_tr"
 authors = ["ffreemt"]
 license = "MIT"
