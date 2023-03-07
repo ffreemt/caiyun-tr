@@ -20,6 +20,9 @@ headers = {
     "Content-Type": "application/json;charset=UTF-8",
     "app-name": "app",
 }
+# fd4
+# "X-Authorization", "token:qgemv4jr1y38jyq6vhvi"
+
 headers = {
     'Content-Type': 'application/json',
     'x-authorization': 'token ssdj273ksdiwi923bsd9',
@@ -185,10 +188,39 @@ def caiyun_tr(
 
 
 _ = '''
-def caiyun_fixed_jwt(text: str, jwt: Optional[str] = None, fron_lang: str = "zn", to_lang: str = "zh") -> str:
-    """Translate via caiyun.
+import urllib
 
-    """
-    if jwt is None:
-        jwt = fetch_jwt()
+try:
+req = urllib.request.Request("https://lingocloud.caiyunapp.com/v1/translator")
+
+req.add_header("Connection", "keep-alive")
+req.add_header("sec-ch-ua", "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\"")
+req.add_header("version", "1.8.0")
+req.add_header("DNT", "1")
+req.add_header("os-version", "")
+req.add_header("sec-ch-ua-mobile", "?0")
+req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36")
+req.add_header("app-name", "xy")
+req.add_header("Content-Type", "application/json;charset=UTF-8")
+req.add_header("Accept", "application/json, text/plain, */*")
+req.add_header("device-id", "")
+req.add_header("os-type", "web")
+req.add_header("X-Authorization", "token:qgemv4jr1y38jyq6vhvi")
+req.add_header("T-Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJicm93c2VyX2lkIjoiNWRkYjE5Y2Y3Yzg1MTExZDVjNGIyNGMxY2UyYjRmMjQiLCJpcF9hZGRyZXNzIjoiMjE5Ljc2LjI1LjEyNSIsInRva2VuIjoicWdlbXY0anIxeTM4anlxNnZodmkiLCJ2ZXJzaW9uIjoxLCJleHAiOjE2NzgxNzI1NTd9.PmqL-0dM5aB0af1WvDsMTI9glY4oRjqByn7Dh4aWyMI")
+req.add_header("sec-ch-ua-platform", "\"Windows\"")
+req.add_header("Origin", "https://fanyi.caiyunapp.com")
+req.add_header("Sec-Fetch-Site", "same-site")
+req.add_header("Sec-Fetch-Mode", "cors")
+req.add_header("Sec-Fetch-Dest", "empty")
+req.add_header("Referer", "https://fanyi.caiyunapp.com/")
+req.add_header("Accept-Encoding", "gzip, deflate, br")
+req.add_header("Accept-Language", "en,zh;q=0.9,de;q=0.8")
+
+body = """{\"source\":\"多测试测试一下\",\"trans_type\":\"zh2en\",\"request_id\":\"web_fanyi\",\"media\":\"text\",\"os_type\":\"web\",\"dict\":true,\"cached\":true,\"replaced\":true,\"browser_id\":\"5ddb19cf7c85111d5c4b24c1ce2b4f24\"}""".encode()
+
+r = urllib.request.urlopen(req, body)
+
+r_read = r.read()
+
+text_tr = caiyun_decode(json.loads(r_read.decode()).get('target'))
 # '''
